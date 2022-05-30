@@ -22,7 +22,7 @@ public class GuardadoJsonEncript : MonoBehaviour
     
 
     //Variable que seguirá siendo pública y accesible pero no se guardará en nuestro archivo, al especificarle que no será serializable
-    //[System.NonSerialized] public int damage = 10;
+    
 
 
 
@@ -224,9 +224,7 @@ public class GuardadoJsonEncript : MonoBehaviour
         textoEXP.text = exper.ToString();
     }
 
-    /*Ruta del archivo de guardado
-        C:/Users/User/AppData/LocalLow/DefaultCompany/DataPersistenceProject/jsonUtilityDemo.sav
-    */
+    
 
 }
 

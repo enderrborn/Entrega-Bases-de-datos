@@ -1130,12 +1130,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 852af41ec1444854dbb1131212e1de0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 10
+  timeRemaining: 60
   timerIsRunning: 0
   timeText: {fileID: 1674072312}
   CanvasFinJuego: {fileID: 2049140966}
   puntuacion: {fileID: 1990606394}
   boton: {fileID: 1446911166}
+  ScriptDisparo: {fileID: 0}
 --- !u!114 &1127264547
 MonoBehaviour:
   m_ObjectHideFlags: 0

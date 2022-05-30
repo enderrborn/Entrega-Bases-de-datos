@@ -41,7 +41,7 @@ public class RankingManager : MonoBehaviour
         MostrarRanking();
     }
 
-    //Método para abrir la DB
+    //Método para abrir la base de datos
     void AbrirDB()
     {
         // Crear y abrir la conexión
@@ -64,12 +64,12 @@ public class RankingManager : MonoBehaviour
         dbConnection.Open();
     }
 
-    //Método para obtener el Ranking de la DB
+    //Método para obtener el Ranking de la base de datos
     void ObtenerRanking()
     {
         //Primero dejamos la lista de Rankings limpia
         rankings.Clear();
-        //Abrimos la DB
+        //Abrimos la base de datos
         AbrirDB();
         // Crear la consulta
         dbCommand = dbConnection.CreateCommand();
@@ -84,44 +84,44 @@ public class RankingManager : MonoBehaviour
         }
         reader.Close();
         reader = null;
-        //Cerramos la DB
+        //Cerramos la base de datos
         CerrarDB();
         //Ordenamos la lista
         rankings.Sort();
     }
 
-    //Método para insertar puntos en la DB
+    //Método para insertar puntos en la base de datos
     public void InsertarPuntos(string n, int s)
     {
-        //Abrimos la DB
+        //Abrimos la base de datos
         AbrirDB();
         // Crear la consulta
         dbCommand = dbConnection.CreateCommand();
         string sqlQuery = String.Format("INSERT INTO Datos(Nombre, Puntuacion) values(\"{0}\",\"{1}\")", n, s);
         dbCommand.CommandText = sqlQuery;
         dbCommand.ExecuteScalar();
-        //Cerramos la DB
+        //Cerramos la base de datos
         CerrarDB();
     }
 
-    //Método para borrar puntos de la DB
+    //Método para borrar puntos de la base de datos
     void BorrarPuntos(int id)
     {
-        //Abrimos la DB
+        //Abrimos la base de datos
         AbrirDB();
-        // Crear la consulta
+        // Creamos la consulta la consulta
         dbCommand = dbConnection.CreateCommand();
         string sqlQuery = "DELETE FROM Datos WHERE Posicion = \"" + id + "\"";
         dbCommand.CommandText = sqlQuery;
         dbCommand.ExecuteScalar();
-        //Cerramos la DB
+        //Cerramos la base de datos
         CerrarDB();
     }
 
     //Método para mostrar el ranking en la UI
     void MostrarRanking()
     {
-        //Obtener el ranking de la DB
+        //Obtener el ranking de la base de datos
         ObtenerRanking();
         //Hacemos una pasada por la lista para ir posicionando los puntos en la UI
         for (int i = 0; i < topRank; i++)
@@ -156,7 +156,7 @@ public class RankingManager : MonoBehaviour
             rankings.Reverse();
             //obtenemos la diferencia entre el ranking y el limite, para ver cuantos registros nos sobran
             int diferencia = rankings.Count - limiteRanking;
-            //Abrimos DB
+            //Abrimos la base de datos
             AbrirDB();
             //Creo Comando
             dbCommand = dbConnection.CreateCommand();
@@ -168,13 +168,13 @@ public class RankingManager : MonoBehaviour
                 dbCommand.CommandText = sqlQuery;
                 dbCommand.ExecuteScalar();
             }
-            //Cerrar DB
+            //Cerrar la base de datos
             CerrarDB();
 
         }
     }
 
-    //Método para cerrar la DB
+    //Método para cerrar la base de datos
     void CerrarDB()
     {
         // Cerrar las conexiones
