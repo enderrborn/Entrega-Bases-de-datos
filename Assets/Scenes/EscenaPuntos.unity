@@ -1102,7 +1102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntosTXT: {fileID: 1990606394}
   nombreTXT: {fileID: 2107419401}
-  panelGO: {fileID: 0}
   rankingGO: {fileID: 53789421}
 --- !u!4 &1127264545
 Transform:
